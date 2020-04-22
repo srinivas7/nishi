@@ -1,0 +1,163 @@
+{
+  "header": {
+    "sourceName": "iOS",
+    "transactionId": "1582232457_831205037",
+    "timestamp": "2020-02-20T16:00:57.982-05:00",
+    "organization": "hum",
+    "region": "US",
+    "applicationName": "MAPP"
+  },
+  "response": {
+    "responseCode": "2000",
+    "responseDescription": "Success",
+    "responseStatus": "SUCCESS"
+  },
+  "dataArea": {
+    "componentSummaries": [
+
+    ],
+    "summaryType": "customWithTrips",
+    "overallSummary": {
+      "startDate": "2020-02-20",
+      "endDate": "2020-02-20",
+      "tripDuration": 4521,
+      "totalDistance": 17,
+      "idleTime": 302,
+      "mpg": 20,
+      "fuelConsumed": 0.9,
+      "cityMpg": 20,
+      "highwayMpg": 0,
+      "averageSpeed": 14,
+      "maxSpeed": 66,
+      "epaCity": 0,
+      "epaHwy": 0,
+      "evtDetails": null,
+      "events": {
+        "AC": 0,
+        "ALL": 1,
+        "BR": 1,
+        "HS": 0,
+        "LC": 0,
+        "RC": 0,
+        "NE": 2
+      },
+      "safetyScore": 95
+    },
+    "trips": [
+      {
+        "tripDate": "2020-02-20",
+        "tripId": "25a7a8e3-f5ac-39b7-8457-14af7cd078a7",
+        "startTime": "2020-02-20T07:44:14",
+        "endTime": "2020-02-20T08:52:10",
+        "eventDate": null,
+        "startLatitude": 34.0833374,
+        "startLongitude": -84.316555,
+        "endLatitude": 33.914515,
+        "endLongitude": -84.342442,
+        "tripDuration": 4076,
+        "idleTime": 274,
+        "maxSpeed": 66,
+        "fuelUsed": 0.8,
+        "gallons": 0,
+        "averageSpeed": 15,
+        "tripDistance": 17,
+        "mpg": 20,
+        "cityMpg": 0,
+        "hwyMpg": 0,
+        "cityDistance": 17,
+        "hwyDistance": 0,
+        "epaCity": 0,
+        "epaHwy": 0,
+        "tripTag": "",
+        "startLocation": "Unnamed Road|Leawood|KS|66211",
+        "endLocation": "14210|Conser|St|Overland Park|KS|66223",
+        "sttz": null,
+        "entz": null,
+        "evtDetails": {
+          "events": [
+            [
+              1582187896,
+              -5,
+              33.9278285,
+              -84.35799,
+              "BR",
+              null
+            ],
+            [
+              1582187896,
+              -5,
+              33.9278285,
+              -84.35799,
+              "NE",
+              null
+            ],
+            [
+              1582187896,
+              -5,
+              33.9278285,
+              -84.35799,
+              "NE",
+              null
+            ]
+          ]
+        },
+        "eventsummary": {
+          "AC": 0,
+          "ALL": 1,
+          "BR": 1,
+          "HS": 0,
+          "LC": 0,
+          "RC": 0,
+          "NE": 2
+        },
+        "safetyScore": 95
+      },
+      {
+        "tripDate": "2020-02-20",
+        "tripId": "e52b785a-226e-30b0-898a-586ee132b2c3",
+        "startTime": "2020-02-20T07:01:56",
+        "endTime": "2020-02-20T07:09:21",
+        "eventDate": null,
+        "startLatitude": 34.0833757,
+        "startLongitude": -84.31651,
+        "endLatitude": 34.0833229,
+        "endLongitude": -84.316527,
+        "tripDuration": 445,
+        "idleTime": 28,
+        "maxSpeed": 19,
+        "fuelUsed": 0,
+        "gallons": 0,
+        "averageSpeed": 1,
+        "tripDistance": 0,
+        "mpg": 14,
+        "cityMpg": 0,
+        "hwyMpg": 0,
+        "cityDistance": 0,
+        "hwyDistance": 0,
+        "epaCity": 0,
+        "epaHwy": 0,
+        "tripTag": "",
+        "startLocation": "12020 Glenwood Ave|Leawood|KS|66209",
+        "endLocation": "7227 W 115th St|Overland Park|KS|66210",
+        "sttz": null,
+        "entz": null,
+        "evtDetails": {
+          "events": [
+
+          ]
+        },
+        "eventsummary": {
+          "AC": 0,
+          "ALL": 0,
+          "BR": 0,
+          "HS": 0,
+          "LC": 0,
+          "RC": 0,
+          "NE": 0
+        },
+        "safetyScore": 100
+      }
+    ],
+    "preWeekOverallSummary": null
+  }
+}

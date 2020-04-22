@@ -1,0 +1,204 @@
+<div class="container-fluid">
+  <h2 class="heading">Driving History</h2>
+  <div class="row">
+    <div class="col-md-1">
+      <p class="driverInfo">Driver : </p>
+      <p class="driverInfo">IMEI : </p>
+      <p class="driverInfo">Vehicle : </p>
+    </div>
+    <div class="col-md-2">
+      <p class="driverInfo">{{customer?.firstname}}</p>
+      <p class="driverInfo">{{customer?.imei}}</p>
+      <p class="driverInfo">{{customer?.year}} {{customer?.make}} {{customer?.model}} </p>
+    </div>
+    <div class="col-md-2">
+      <table class="table table-sm" *ngIf="showTripEvents">
+        <tbody>
+          <tr>
+            <td class="driverInfo">Rapid Acceleration: </td>
+            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.AC}}</button></td>
+          </tr>
+          <tr>
+            <td class="driverInfo">Hard Braking: </td>
+            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.HB}}</button></td>
+          </tr>
+          <tr>
+            <td class="driverInfo">Left Cornering: </td>
+            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.LC}}</button></td>
+          </tr>
+          <tr>
+            <td class="driverInfo">Right Cornering: </td>
+            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.RC}}</button></td>
+          </tr>
+          <tr>
+            <td class="driverInfo">High Speed: </td>
+            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.HS}}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <label style="padding: 3px;">Trip Date</label>
+          <div class="input-group-prepend" (click)="previousDate()">
+            <span class="input-group-text"><</span>
+          </div>
+          <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" />
+          <div class="input-group-append" (click)="nextDate()">
+            <span class="input-group-text">></span>
+          </div>
+        </div>
+      </div>
+      <!-- <table class="table table-striped table-bordered mt-2">
+        <thead>
+          <tr>
+            <th>Start Time</th>
+            <th>Start Location</th>
+            <th>End Location</th>
+            <th>No of Events</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trip of tripsList?.dataArea?.trips" (click)="showMap(trip)">
+            <td>{{trip?.startTime}}</td>
+            <td>{{trip?.startLocation}}</td>
+            <td>{{trip?.endLocation}}</td>
+            <td>
+              {{trip?.eventsummary?.ALL}}
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+      
+    <!-- <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+    <a class="page-link" href="#"><h5>Sunday,Apr19,2020</h5><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+       <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav> -->
+      <div class="calender-box row">
+        <div class="col col-1 text-center nopadding">
+          <span><i class="fa fa-angle-left"></i></span>
+        </div>
+        <div class="col col-4 text-center nopadding" style="flex: 0 0 27.333333%; max-width: 27.333333%;">
+          <h6>Sunday,Apr19,2020</h6>
+        </div>
+        <div class="col col-1 text-center nopadding">
+          <span><i class="fa fa-calendar-plus-o" style="padding: 5px 6px;background-color: transparent;color: green;font-size: 18px;"></i></span>
+        </div>
+        <div class="col col-1 text-center nopadding">
+          <span><i class="fa fa-angle-right"></i></span>
+        </div>
+      </div>
+      <div class="row col col-12 card" >
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+              <div class="row">
+                <div class="col col-6">
+                  <h5>Sunday Apr19,2020</h5>
+                </div>
+            
+                <div class="col col-6">
+                  <span><b>3 Trips</b></span>
+                  <span>748mi</span>
+                  <span>7h 57m</span>
+                </div>
+              </div>
+          </li>
+          <li class="list-group-item">
+            <div class=" d-flex flex-row row mx-0 ">
+
+              <div class="col col-1 ">
+                  <div class="circle-green ">
+                  </div>
+                  <div class="line "></div>
+              </div>
+              <div class="col col-3 ">
+                  <div class="medium-m f-semibold-m ">
+                      12:00 AM
+                  </div>
+              </div>
+              <div class="col cursor">
+                <!--  [innerHtml]="tripData.startAddress" -->
+                  <label class="medium-m f-medium-m"> 3003 SW Mopie Rd,<br>Bentonville AR 72713.<br>
+                  </label>
+              </div>
+          </div>
+          <!-- <div class="d-flex flex-row row mx-0 ">
+              <div class="col col-1 pt-0 ">
+                  <div class="circle-red ">
+                  </div>
+              </div>
+              <div class="col col-3 ">
+                  <div class="medium-m f-semibold-m ">
+                      18:00PM
+                  </div>
+              </div>
+              <div class="col cursor">
+                <!-- [innerHtml]="tripData.endAddress" -->
+                  <label class="medium-m f-medium-m" >check inner html for address beautification
+                  </label>
+              </div>
+          </div> -->
+          </li>
+
+          <li class="list-group-item">
+            <div class=" d-flex flex-row row mx-0 ">
+
+              <div class="col col-1 ">
+                  <div class="circle-green ">
+                  </div>
+                  <div class="line "></div>
+              </div>
+              <div class="col col-3 ">
+                  <div class="medium-m f-semibold-m ">
+                      12:00 AM
+                  </div>
+              </div>
+              <div class="col cursor">
+                <!--  [innerHtml]="tripData.startAddress" -->
+                  <label class="medium-m f-medium-m"> check inner html for address beautification
+                  </label>
+              </div>
+          </div>
+          <div class="d-flex flex-row row mx-0 ">
+              <div class="col col-1 pt-0 ">
+                  <div class="circle-red ">
+                  </div>
+              </div>
+              <div class="col col-3 ">
+                  <div class="medium-m f-semibold-m ">
+                      18:00PM
+                  </div>
+              </div>
+              <div class="col cursor">
+                <!-- [innerHtml]="tripData.endAddress" -->
+                  <label class="medium-m f-medium-m" >check inner html for address beautification
+                  </label>
+              </div>
+          </div>
+          </li>
+        </ul>
+        
+    </div>
+    </div>
+    <div class="col-md-6">
+      <app-map *ngIf="showTripMap" [trip]="trip"></app-map>
+    </div>
+  </div>
+  </div>
