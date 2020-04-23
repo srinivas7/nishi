@@ -3,13 +3,14 @@ import { AppService } from '../services/app.service';
 import { Customer } from '../customer/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateFormatPipe } from '../date-format.pipe';
-//import {DialogService} from 'primeng/dynamicdialog';
-//import {EventDetailsComponent} from '../event-details/event-details.component';
+import {DialogService} from 'primeng/dynamicdialog';
+import {EventDetailsComponent} from '../event-details/event-details.component';
 
 @Component({
   selector: 'app-trips',
   templateUrl: './trips.component.html',
-  styleUrls: ['./trips.component.css']
+  styleUrls: ['./trips.component.css'],
+  providers: [DialogService]
 })
 export class TripsComponent implements OnInit {
   public customer: Customer;
@@ -23,7 +24,7 @@ export class TripsComponent implements OnInit {
   public tripStartDate: Date = new Date();
   public base_url_trip: string = 'https://apix.vtitel.com/HTIWebGateway/vv/rest/DrivingHistory/getDrivingHistory';
   constructor(private apiService: AppService, private router: Router, private route: ActivatedRoute, 
-    private dateToString: DateFormatPipe) { }
+    private dateToString: DateFormatPipe, public dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.getCustomer();
@@ -103,10 +104,10 @@ export class TripsComponent implements OnInit {
     let dayMS = 24 * 60 * 60 * 1000;
 
 }
-// show() {
-//   const ref = this.dialogService.open(EventDetailsComponent, {
-//       width: '70%',
-//       showHeader: false
-//   });
-// }
+show() {
+  const ref = this.dialogService.open(EventDetailsComponent, {
+      width: '70%',
+      showHeader: false
+  });
+}
 }

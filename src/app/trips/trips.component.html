@@ -16,7 +16,7 @@
         <tbody>
           <tr>
             <td class="driverInfo">Rapid Acceleration: </td>
-            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.AC}}</button></td>
+            <td><button class="button" (click)="show()">{{trip?.eventsummary?.AC}}</button></td>
           </tr>
           <tr>
             <td class="driverInfo">Hard Braking: </td>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="col-md-6">
         <div class="input-group mb-3">
           <label style="padding: 3px;">Trip Date</label>
@@ -175,7 +175,7 @@
         </ng-template>
     </p-overlayPanel>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <app-map *ngIf="showTripMap" [trip]="trip"></app-map>
     </div>
   </div>

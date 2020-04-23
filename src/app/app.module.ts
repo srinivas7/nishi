@@ -45,7 +45,9 @@ import {CodeHighlighterModule} from 'primeng/codehighlighter'
     ChartsModule,
     AppRoutingModule,
     CalendarModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    CommonModule,
+        DynamicDialogModule,
   ],
   providers: [AppService,DateFormatPipe],
   bootstrap: [AppComponent],
