@@ -40,19 +40,20 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="col-md-6">
-        <div class="input-group mb-3">
+      <div class="col-md-10">
+        <div class="input-group calender-box mb-3">
           <label style="padding: 3px;">Trip Date</label>
           <div class="input-group-prepend" (click)="previousDate()">
-            <span class="input-group-text"><</span>
+            <span><i class="fa fa-angle-left"></i></span>
           </div>
           <!-- <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" /> -->
-          <p-calendar [(ngModel)]="tripStartDate" [showIcon]='true'></p-calendar>
+          <p-calendar class="test" [(ngModel)]="tripStartDate"  dateFormat="DDMMdd,yy" [showIcon]='true'></p-calendar>
+          
           <!-- <div class="input-group-append" >
             <span class="input-group-text">></span>
             
           </div> -->
-          <div class="col col-1 text-center nopadding" (click)="nextDate()">
+          <div class="calender-right col col-1 text-center nopadding" (click)="nextDate()">
             <span><i class="fa fa-angle-right"></i></span>
           </div>
         </div>
@@ -96,7 +97,7 @@
         </li>
       </ul>
     </nav> -->
-      <div class="calender-box row">
+      <!--<div class="calender-box row">
         <div class="col col-1 text-center nopadding">
           <span><i class="fa fa-angle-left"></i></span>
         </div>
@@ -109,7 +110,7 @@
         <div class="col col-1 text-center nopadding">
           <span><i class="fa fa-angle-right"></i></span>
         </div>
-      </div>
+      </div>-->
       <div class="row col col-12 card" >
         <ul class="list-group list-group-flush">
           <li class="list-group-item" >
@@ -119,7 +120,7 @@
                 </div>
             
                 <div class="col col-6">
-                  <span><b>3 Trips</b></span>
+                  <span><b>{{tripsList.dataArea.trips.length}} Trips</b></span>
                   <span>748mi</span>
                   <span>7h 57m</span>
                 </div>
@@ -127,21 +128,26 @@
           </li>
           <li class="list-group-item" *ngFor="let trip of tripsList?.dataArea?.trips"  (click)="showMap(trip)">
             <div class=" d-flex flex-row row mx-0 ">
-
-              <div class="col col-1 ">
-                  <div class="circle-green ">
+                <div class="col col-1 ">
+                  <div class="circle-green">
                   </div>
                   <div class="line "></div>
               </div>
+              
               <div class="col col-3 ">
                   <div class="medium-m f-semibold-m ">
                     {{trip?.startTime | hour}}
                   </div>
               </div>
-              <div class="col cursor">
-                <!--  [innerHtml]="tripData.startAddress" -->
-                  <label class="medium-m f-medium-m"> {{trip?.startLocation | addSpace}}<br>
-                  </label>
+              <div class="col-5">
+                <div class="cursor">
+                  <!--  [innerHtml]="tripData.startAddress" -->
+                    <label class="medium-m f-medium-m"> {{trip?.startLocation | addSpace}}<br>
+                    </label>
+                </div>
+            </div>
+              <div class="col col-2">
+                <h6>{{trip.evtDetails.events.length}}</h6>
               </div>
           </div>
           <div class="d-flex flex-row row mx-0 ">
@@ -154,11 +160,16 @@
                     {{trip?.endTime | hour}}
                   </div>
               </div>
-              <div class="col cursor">
-                <!-- [innerHtml]="tripData.endAddress" -->
-                  <label class="medium-m f-medium-m" >{{trip?.endLocation | addSpace}}
-                  </label>
-              </div>
+              <div class="col-5">
+                <div class="cursor">
+                  <!-- [innerHtml]="tripData.endAddress" -->
+                    <label class="medium-m f-medium-m" >{{trip?.endLocation | addSpace}}
+                    </label>
+                </div>
+            </div>
+            <!-- <div class="col col-2">
+              <h1>2</h1>
+            </div> -->
           </div>
           </li>
 
@@ -180,4 +191,3 @@
     </div>
   </div>
   </div>
-

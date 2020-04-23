@@ -466,3 +466,63 @@ font-size: 15px;
 :host ::ng-deep .ui-inputtext {
   color: red;
 }
+
+.calender-box span i
+{
+  padding : 5px 10px;
+  background-color: green;
+  color: #eee;
+  border-radius: 50%;
+}
+
+.input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text, .input-group>.input-group-prepend:first-child>.btn:not(:first-child), .input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child), .input-group>.input-group-prepend:not(:first-child)>.btn, .input-group>.input-group-prepend:not(:first-child)>.input-group-text {
+  
+  background-color: green;
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px 10px;
+  width: 28px;
+  height: 28px;
+  line-height: 25px;
+  text-align: center;
+}
+
+:host ::ng-deep .ui-inputtext {
+  color:#000;
+  font-weight: bold;
+  margin-left: 20px;
+  
+}
+:host ::ng-deep .ui-datepicker-trigger.ui-button {
+  border-radius: 50%;
+  color: green;
+  background-color: transparent;
+  border: none;
+}
+:host ::ng-deep .ui-datepicker-trigger.ui-button:hover{
+  background-color: transparent;
+  color: yellow;
+  cursor: pointer;
+  border: none;
+}
+:host ::ng-deep .ui-button-icon-left {
+  top: 50%;
+  left: 50%;
+  margin-top: -.5em;
+  margin-left: -1.5em;
+  width: 1em;
+  height: 1em;
+}
+.calender-box label
+{
+  margin-left : -1px;
+ 
+}
+.input-group-prepend {
+  margin-left: 17px;
+  width: 40px;
+}
+.calender-right{
+  margin-left: -8px;
+  padding: 5px 6px;
+}
