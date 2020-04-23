@@ -17,7 +17,8 @@ export class TripsComponent implements OnInit {
   public showTripMap: boolean = false;
   public showTripEvents: boolean = false;
   dateFilterUIString = '';
-  public tripStartDate: string = new Date().toISOString().split('T')[0];
+  // public tripStartDate: string = new Date().toISOString().split('T')[0];
+  public tripStartDate: Date = new Date();
   public base_url_trip: string = 'https://apix.vtitel.com/HTIWebGateway/vv/rest/DrivingHistory/getDrivingHistory';
   constructor(private apiService: AppService, private router: Router, private route: ActivatedRoute, private dateToString: DateFormatPipe) { }
 
@@ -80,7 +81,7 @@ export class TripsComponent implements OnInit {
     let current = new Date(this.tripStartDate);
     if(current.getDate()+1 != new Date().getDate()){
       current.setDate(current.getDate()+1);
-      this.tripStartDate = current.toISOString().split('T')[0];
+      // this.tripStartDate = current.toISOString().split('T')[0];
       this.getAllTrips();
     }else{
       alert("no next day records");
@@ -89,7 +90,7 @@ export class TripsComponent implements OnInit {
   public previousDate(){
     let current = new Date(this.tripStartDate);
     current.setDate(current.getDate()-1);
-    this.tripStartDate = current.toISOString().split('T')[0];
+    // this.tripStartDate = current.toISOString().split('T')[0];
     this.getAllTrips();
   }
 

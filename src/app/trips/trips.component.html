@@ -46,9 +46,14 @@
           <div class="input-group-prepend" (click)="previousDate()">
             <span class="input-group-text"><</span>
           </div>
-          <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" />
-          <div class="input-group-append" (click)="nextDate()">
+          <!-- <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" /> -->
+          <p-calendar [(ngModel)]="tripStartDate" [showIcon]='true'></p-calendar>
+          <!-- <div class="input-group-append" >
             <span class="input-group-text">></span>
+            
+          </div> -->
+          <div class="col col-1 text-center nopadding" (click)="nextDate()">
+            <span><i class="fa fa-angle-right"></i></span>
           </div>
         </div>
       </div>
@@ -107,7 +112,7 @@
       </div>
       <div class="row col col-12 card" >
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">
+          <li class="list-group-item" >
               <div class="row">
                 <div class="col col-6">
                   <h5>Sunday Apr19,2020</h5>
@@ -120,7 +125,7 @@
                 </div>
               </div>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" *ngFor="let trip of tripsList?.dataArea?.trips"  (click)="showMap(trip)">
             <div class=" d-flex flex-row row mx-0 ">
 
               <div class="col col-1 ">
@@ -130,12 +135,12 @@
               </div>
               <div class="col col-3 ">
                   <div class="medium-m f-semibold-m ">
-                      12:00 AM
+                    {{trip?.startTime | hour}}
                   </div>
               </div>
               <div class="col cursor">
                 <!--  [innerHtml]="tripData.startAddress" -->
-                  <label class="medium-m f-medium-m"> 3003 SW Mopie Rd,<br>Bentonville AR 72713.<br>
+                  <label class="medium-m f-medium-m"> {{trip?.startLocation | addSpace}}<br>
                   </label>
               </div>
           </div>
@@ -146,53 +151,18 @@
               </div>
               <div class="col col-3 ">
                   <div class="medium-m f-semibold-m ">
-                      18:00PM
+                    {{trip?.endTime | hour}}
                   </div>
               </div>
               <div class="col cursor">
                 <!-- [innerHtml]="tripData.endAddress" -->
-                  <label class="medium-m f-medium-m" >check inner html for address beautification
+                  <label class="medium-m f-medium-m" >{{trip?.endLocation | addSpace}}
                   </label>
               </div>
           </div>
           </li>
 
-          <li class="list-group-item">
-            <div class=" d-flex flex-row row mx-0 ">
-
-              <div class="col col-1 ">
-                  <div class="circle-green ">
-                  </div>
-                  <div class="line "></div>
-              </div>
-              <div class="col col-3 ">
-                  <div class="medium-m f-semibold-m ">
-                      12:00 AM
-                  </div>
-              </div>
-              <div class="col cursor">
-                <!--  [innerHtml]="tripData.startAddress" -->
-                  <label class="medium-m f-medium-m"> check inner html for address beautification
-                  </label>
-              </div>
-          </div>
-          <div class="d-flex flex-row row mx-0 ">
-              <div class="col col-1 pt-0 ">
-                  <div class="circle-red ">
-                  </div>
-              </div>
-              <div class="col col-3 ">
-                  <div class="medium-m f-semibold-m ">
-                      18:00PM
-                  </div>
-              </div>
-              <div class="col cursor">
-                <!-- [innerHtml]="tripData.endAddress" -->
-                  <label class="medium-m f-medium-m" >check inner html for address beautification
-                  </label>
-              </div>
-          </div>
-          </li>
+          
         </ul>
         
     </div>

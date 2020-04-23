@@ -1,4 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,11 @@ import { TripsComponent } from './trips/trips.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { AppService } from './services/app.service';
 import { DateFormatPipe } from './date-format.pipe';
+import {AddSpacePipe} from './trips/remove.space.pipe';
+import { HourPipe } from './trips/hour.pipe';
+import {CalendarModule} from 'primeng/calendar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,14 +26,18 @@ import { DateFormatPipe } from './date-format.pipe';
     ChartComponent,
     CustomerComponent,
     TripsComponent,
+    AddSpacePipe,
+    HourPipe,
     EventDetailsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ChartsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CalendarModule
   ],
   providers: [AppService,DateFormatPipe],
   bootstrap: [AppComponent]
