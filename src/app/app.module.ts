@@ -17,18 +17,25 @@ import { DateFormatPipe } from './date-format.pipe';
 import {AddSpacePipe} from './trips/remove.space.pipe';
 import { HourPipe } from './trips/hour.pipe';
 import {CalendarModule} from 'primeng/calendar';
-
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {CommonModule} from '@angular/common';
+import {ToastModule} from 'primeng/toast';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {TabViewModule} from 'primeng/tabview';
+import {CodeHighlighterModule} from 'primeng/codehighlighter'
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    ChartComponent,
     CustomerComponent,
     TripsComponent,
     AddSpacePipe,
     HourPipe,
-    EventDetailsComponent
+    EventDetailsComponent, 
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +44,11 @@ import {CalendarModule} from 'primeng/calendar';
     FormsModule,
     ChartsModule,
     AppRoutingModule,
-    CalendarModule
+    CalendarModule,
+    OverlayPanelModule
   ],
   providers: [AppService,DateFormatPipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EventDetailsComponent, ChartComponent]
 })
 export class AppModule { }

@@ -16,23 +16,23 @@
         <tbody>
           <tr>
             <td class="driverInfo">Rapid Acceleration: </td>
-            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.AC}}</button></td>
+            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.AC}}</button></td>
           </tr>
           <tr>
             <td class="driverInfo">Hard Braking: </td>
-            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.HB}}</button></td>
+            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.HB}}</button></td>
           </tr>
           <tr>
             <td class="driverInfo">Left Cornering: </td>
-            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.LC}}</button></td>
+            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.LC}}</button></td>
           </tr>
           <tr>
             <td class="driverInfo">Right Cornering: </td>
-            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.RC}}</button></td>
+            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.RC}}</button></td>
           </tr>
           <tr>
             <td class="driverInfo">High Speed: </td>
-            <td><button class="button" (click)="navigateToEventDetails()">{{trip?.eventsummary?.HS}}</button></td>
+            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.HS}}</button></td>
           </tr>
         </tbody>
       </table>
@@ -167,8 +167,17 @@
         
     </div>
     </div>
+    <div>
+      <!-- <div style="display: inline;" (click)="op.toggle($event)" >Show</div> -->
+      <p-overlayPanel #op [showCloseIcon]='true'>
+        <ng-template pTemplate>
+           <app-event-details></app-event-details>
+        </ng-template>
+    </p-overlayPanel>
+    </div>
     <div class="col-md-6">
       <app-map *ngIf="showTripMap" [trip]="trip"></app-map>
     </div>
   </div>
   </div>
+

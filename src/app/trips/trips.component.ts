@@ -3,6 +3,8 @@ import { AppService } from '../services/app.service';
 import { Customer } from '../customer/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateFormatPipe } from '../date-format.pipe';
+//import {DialogService} from 'primeng/dynamicdialog';
+//import {EventDetailsComponent} from '../event-details/event-details.component';
 
 @Component({
   selector: 'app-trips',
@@ -20,7 +22,8 @@ export class TripsComponent implements OnInit {
   // public tripStartDate: string = new Date().toISOString().split('T')[0];
   public tripStartDate: Date = new Date();
   public base_url_trip: string = 'https://apix.vtitel.com/HTIWebGateway/vv/rest/DrivingHistory/getDrivingHistory';
-  constructor(private apiService: AppService, private router: Router, private route: ActivatedRoute, private dateToString: DateFormatPipe) { }
+  constructor(private apiService: AppService, private router: Router, private route: ActivatedRoute, 
+    private dateToString: DateFormatPipe) { }
 
   ngOnInit(): void {
     this.getCustomer();
@@ -100,4 +103,10 @@ export class TripsComponent implements OnInit {
     let dayMS = 24 * 60 * 60 * 1000;
 
 }
+// show() {
+//   const ref = this.dialogService.open(EventDetailsComponent, {
+//       width: '70%',
+//       showHeader: false
+//   });
+// }
 }

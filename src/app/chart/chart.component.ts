@@ -11,7 +11,7 @@ import { NONE_TYPE } from '@angular/compiler';
 })
 export class ChartComponent implements OnInit {
   constructor(private http: HttpClient) { }
-  @Input() type;
+  @Input() type ='first';
   public lineChartData: ChartDataSets[] = [
     { data: [], label: 'RAW', yAxisID: 'yAxis1' },
     { data: [], label: 'SMOOTH', yAxisID: 'yAxis1' },
