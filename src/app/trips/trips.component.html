@@ -1,41 +1,27 @@
 <div class="container-fluid">
   <h2 class="heading">Driving History</h2>
   <div class="row">
-    <div class="col-md-1">
-      <p class="driverInfo">Driver : </p>
-      <p class="driverInfo">IMEI : </p>
-      <p class="driverInfo">Vehicle : </p>
+    <div class="col-md-12 info">
+      <span class="driverInfo">Driver :  {{customer?.firstname}}</span>
+      <span class="driverInfo">IMEI : {{customer?.imei}}</span>
+      <span class="driverInfo">Vehicle : {{customer?.year}} {{customer?.make}} {{customer?.model}}</span>
     </div>
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
       <p class="driverInfo">{{customer?.firstname}}</p>
       <p class="driverInfo">{{customer?.imei}}</p>
       <p class="driverInfo">{{customer?.year}} {{customer?.make}} {{customer?.model}} </p>
-    </div>
-    <div class="col-md-2">
-      <table class="table table-sm" *ngIf="showTripEvents">
-        <tbody>
-          <tr>
-            <td class="driverInfo">Rapid Acceleration: </td>
-            <td><button class="button" (click)="show()">{{trip?.eventsummary?.AC}}</button></td>
-          </tr>
-          <tr>
-            <td class="driverInfo">Hard Braking: </td>
-            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.HB}}</button></td>
-          </tr>
-          <tr>
-            <td class="driverInfo">Left Cornering: </td>
-            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.LC}}</button></td>
-          </tr>
-          <tr>
-            <td class="driverInfo">Right Cornering: </td>
-            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.RC}}</button></td>
-          </tr>
-          <tr>
-            <td class="driverInfo">High Speed: </td>
-            <td><button class="button" (click)="op.toggle($event)">{{trip?.eventsummary?.HS}}</button></td>
-          </tr>
-        </tbody>
-      </table>
+    </div> -->
+    
+  </div>
+  <div class="row">
+    <div class="col-md-12 info calender-box">
+      <span  (click)="previousDate()">
+        <span><i class="fa fa-angle-left"></i></span>
+      </span>
+      <p-calendar class="test" [(ngModel)]="tripStartDate" [minDate]="minDate" [maxDate]="maxDate"  dateFormat="DD MM dd ,yy" [showIcon]='true'></p-calendar>
+      <span class="calender-right col col-1 text-center nopadding" (click)="nextDate()">
+        <span><i class="fa fa-angle-right"></i></span>
+      </span>
     </div>
   </div>
   <div class="row">
@@ -47,7 +33,7 @@
             <span><i class="fa fa-angle-left"></i></span>
           </div>
           <!-- <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" /> -->
-          <p-calendar class="test" [(ngModel)]="tripStartDate" [minDate]="minDate" [maxDate]="maxDate"  dateFormat="DD MM dd ,yy" [showIcon]='true'></p-calendar>
+          
           
           <!-- <div class="input-group-append" >
             <span class="input-group-text">></span>
