@@ -23,12 +23,35 @@ export class TripsComponent implements OnInit {
   // public tripStartDate: string = new Date().toISOString().split('T')[0];
   public tripStartDate: Date = new Date();
   public base_url_trip: string = 'https://apix.vtitel.com/HTIWebGateway/vv/rest/DrivingHistory/getDrivingHistory';
+  minDate: Date;  
+  maxDate: Date;
+
   constructor(private apiService: AppService, private router: Router, private route: ActivatedRoute, 
     private dateToString: DateFormatPipe, public dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.getCustomer();
     this.getAllTrips();
+    this.setCalendarDates();
+    
+  }
+
+  private setCalendarDates() {
+    let today = new Date();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let prevMonth = (month === 0) ? 11 : month -1;
+    let prevYear = (prevMonth === 11) ? year - 1 : year;
+    let nextMonth = (month === 11) ? 0 : month + 1;
+     
+    this.minDate = new Date();
+    let prevDate = this.minDate.getDate() - 15
+    this.minDate.setDate(prevDate);
+    this.minDate.setFullYear(prevYear);
+    this.maxDate = new Date();
+    // this.maxDate.setMonth(nextMonth);
+    // this.maxDate.setFullYear(nextYear);
+    console.log('datesss...', this.minDate, this.maxDate);
   }
 
   private getCustomer() {
@@ -82,19 +105,25 @@ export class TripsComponent implements OnInit {
     this.router.navigate(['/event-detail']);
   }
   public nextDate(){
-    let current = new Date(this.tripStartDate);
-    if(current.getDate()+1 != new Date().getDate()){
-      current.setDate(current.getDate()+1);
-      // this.tripStartDate = current.toISOString().split('T')[0];
-      this.getAllTrips();
-    }else{
+    console.log(this.tripStartDate);
+    if (this.tripStartDate.getDate() == new Date().getDate()) {
       alert("no next day records");
+      return;
     }
+    let current = new Date(this.tripStartDate);
+    current.setDate(current.getDate()+1);
+    this.tripStartDate = current;
+    this.getAllTrips();
   }
   public previousDate(){
+    let minDate = new Date(new Date().setDate(new Date().getDate() - 15));
     let current = new Date(this.tripStartDate);
+    if (current < minDate) {
+      alert('no records');
+      return;
+    }
     current.setDate(current.getDate()-1);
-    // this.tripStartDate = current.toISOString().split('T')[0];
+    this.tripStartDate = current;
     this.getAllTrips();
   }
 
@@ -106,8 +135,9 @@ export class TripsComponent implements OnInit {
 }
 show() {
   const ref = this.dialogService.open(EventDetailsComponent, {
-      width: '70%',
-      showHeader: false
+      width: '90%',
+      showHeader: true,
+      closable: true
   });
 }
 }

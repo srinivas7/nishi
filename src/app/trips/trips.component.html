@@ -47,7 +47,7 @@
             <span><i class="fa fa-angle-left"></i></span>
           </div>
           <!-- <input type="date" class="form-control" placeholder="Choose a Date" [(ngModel)]="tripStartDate" /> -->
-          <p-calendar class="test" [(ngModel)]="tripStartDate"  dateFormat="DDMMdd,yy" [showIcon]='true'></p-calendar>
+          <p-calendar class="test" [(ngModel)]="tripStartDate" [minDate]="minDate" [maxDate]="maxDate"  dateFormat="DDMMdd,yy" [showIcon]='true'></p-calendar>
           
           <!-- <div class="input-group-append" >
             <span class="input-group-text">></span>
@@ -116,7 +116,7 @@
           <li class="list-group-item" >
               <div class="row">
                 <div class="col col-6">
-                  <h5>Sunday Apr19,2020</h5>
+                  <h5>{{tripStartDate}}</h5>
                 </div>
             
                 <div class="col col-6">
