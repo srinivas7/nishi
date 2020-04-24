@@ -24,7 +24,8 @@ import {ToastModule} from 'primeng/toast';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
-import {CodeHighlighterModule} from 'primeng/codehighlighter'
+import {CodeHighlighterModule} from 'primeng/codehighlighter';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {CodeHighlighterModule} from 'primeng/codehighlighter'
     CalendarModule,
     OverlayPanelModule,
     CommonModule,
-        DynamicDialogModule,
+    DynamicDialogModule,
+    PaginatorModule
   ],
   providers: [AppService,DateFormatPipe],
   bootstrap: [AppComponent],
